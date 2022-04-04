@@ -4,6 +4,10 @@ const path = require("path");
 const router = express.Router();
 const { type } = require("os");
 const app = require("express")();
+app.get("/", (req, res) => {
+  res.send("Ho from qaaaaadoooraaa")
+})
+
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const bodyParser = require("body-parser");
