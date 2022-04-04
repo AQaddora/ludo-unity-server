@@ -5,7 +5,7 @@ const router = express.Router();
 const { type } = require("os");
 const app = require("express")();
 app.get("/", (req, res) => {
-  res.send("Ho from qaaaaadoooraaa")
+  res.send("App Started")
 })
 
 const http = require("http").createServer(app);
