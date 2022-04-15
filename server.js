@@ -8,7 +8,6 @@ app.use(express.static(path.join(__dirname, '/WebGL')));
 app.get('/', function(_, res) {
   res.sendFile(path.join(__dirname, 'WebGL/index.html'));
 });
-
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 const bodyParser = require("body-parser");
@@ -23,7 +22,7 @@ const eastablishConection = require("./GamePlay/ClientApi").eastablishConection;
 let onlineUserQ = [];
 
 io.on("connection", (socket) => {
-  debug("a user connected " + socket.id);
+  console.log("a user connected " + socket.id);
 
   onlineUserQ.push(socket);
   for (let i = 0; i < onlineUserQ.length; i++) {
@@ -36,17 +35,17 @@ io.on("connection", (socket) => {
     socket.emit(eastablishConection.ONLINE_PLAYERS, { onlinePlayers: onlineUserQ.length });
   });
   socket.on(eastablishConection.PLAYER_REGISTRATION, (data) => {
-    let invalidId = data["playerId"] === "null" || data["playerId"] === "";
+    let invalidId = true || data["playerId"] === "null" || data["playerId"] === "";
     if (invalidId) {
-      debug("new user");
+      console.log("new user");
       let id = "user" + shotId.generate();
       socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
     } else {
-      debug("old user");
+      console.log("old user");
     }
   });
   socket.on("quit", (data) => {
-    debug(`user ${socket.id} quit`);
+    console.log(`user ${socket.id} quit`);
   });
   socket.on("showData", (data) => {
     console.log(user().showUsers());
@@ -64,7 +63,7 @@ io.on("connection", (socket) => {
     matchMaking(newUserDetail);
   });
   socket.on("disconnect", () => {
-    debug("disconnected " + socket.id);
+    console.log("disconnected " + socket.id);
     let length = onlineUserQ.length - 1;
     for (let i = 0; i < onlineUserQ.length; i++) {
       onlineUserQ[i].emit(eastablishConection.ONLINE_PLAYERS, { onlinePlayers: length });
@@ -76,5 +75,5 @@ io.on("connection", (socket) => {
 });
 
 http.listen(PORT, () => {
-  debug("listening on " + PORT);
+  console.log("listening on " + PORT);
 });
