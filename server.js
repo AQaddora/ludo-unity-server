@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
     let invalidId = data["playerId"] === "null" || data["playerId"] === "";
     if (invalidId) {
       debug("new user");
-      let id = "user_" + Math.random * 9999;
+      let id = "user" + shotId.generate();
       socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
     } else {
       debug("old user");
