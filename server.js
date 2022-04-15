@@ -5,7 +5,7 @@ const router = express.Router();
 const { type } = require("os");
 const app = require("express")();
 app.use(express.static(path.join(__dirname, '/WebGL')));
-app.get('/', function(_, res) {
+app.get('/', function (_, res) {
   res.sendFile(path.join(__dirname, 'WebGL/index.html'));
 });
 const http = require("http").createServer(app);
@@ -35,14 +35,15 @@ io.on("connection", (socket) => {
     socket.emit(eastablishConection.ONLINE_PLAYERS, { onlinePlayers: onlineUserQ.length });
   });
   socket.on(eastablishConection.PLAYER_REGISTRATION, (data) => {
-    let invalidId = true || data["playerId"] === "null" || data["playerId"] === "";
-    if (invalidId) {
-      console.log("new user");
-      let id = "user" + shotId.generate();
-      socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
-    } else {
-      console.log("old user");
-    }
+    let id = shotId.generate();
+    socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
+    console.log(id);
+    // let invalidId = true || data["playerId"] === "null" || data["playerId"] === "";
+    // if (invalidId) {
+    //   console.log("new user");
+    // } else {
+    //   console.log("old user");
+    // }
   });
   socket.on("quit", (data) => {
     console.log(`user ${socket.id} quit`);
