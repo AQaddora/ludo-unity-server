@@ -4,9 +4,10 @@ const path = require("path");
 const router = express.Router();
 const { type } = require("os");
 const app = require("express")();
-app.get("/", (req, res) => {
-  res.send("App Started")
-})
+app.use(express.static(path.join(__dirname, '/WebGL')));
+app.get('/', function(_, res) {
+  res.sendFile(path.join(__dirname, 'WebGL/index.html'));
+});
 
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);
@@ -38,7 +39,7 @@ io.on("connection", (socket) => {
     let invalidId = data["playerId"] === "null" || data["playerId"] === "";
     if (invalidId) {
       debug("new user");
-      let id = "guest" + shotId.generate();
+      let id = "user_" + Math.random * 9999;
       socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
     } else {
       debug("old user");
