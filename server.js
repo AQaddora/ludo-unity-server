@@ -14,7 +14,7 @@ const bodyParser = require("body-parser");
 const debug = require("debug")("test");
 const matchMaking = require("./MatchMaking");
 const user = require("./Users");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const shotId = require("shortid");
 const eastablishConection = require("./GamePlay/ClientApi").eastablishConection;
 
@@ -35,15 +35,16 @@ io.on("connection", (socket) => {
     socket.emit(eastablishConection.ONLINE_PLAYERS, { onlinePlayers: onlineUserQ.length });
   });
   socket.on(eastablishConection.PLAYER_REGISTRATION, (data) => {
-    let id = shotId.generate();
-    socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
+    let id = data["playerId"];
+    let invalidId = id === "null" || id === "";
+    if (invalidId) {
+      console.log("new user");
+      id = shotId.generate();
+      socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
+    } else {
+      console.log("old user");
+    }
     console.log(id);
-    // let invalidId = true || data["playerId"] === "null" || data["playerId"] === "";
-    // if (invalidId) {
-    //   console.log("new user");
-    // } else {
-    //   console.log("old user");
-    // }
   });
   socket.on("quit", (data) => {
     console.log(`user ${socket.id} quit`);
