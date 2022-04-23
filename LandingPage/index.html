@@ -4,13 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <title>LUDO GAME</title>
     <style>
         body {
             user-select: none;
             overflow: hidden;
+            padding: 0px;
+            margin: 0px;
             background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(./bg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
@@ -26,7 +28,6 @@
             font-size: 25px;
             padding: 10px 24px;
             cursor: pointer;
-            width: 100%;
             display: block;
             text-decoration: none;
             text-align: center;
@@ -41,12 +42,10 @@
         }
 
         .center {
-            width: 40%;
-            height: 100%;
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            height: 100%;
+            left: 30%;
+            right: 30%
         }
 
         .container {
@@ -59,17 +58,22 @@
             text-align: center;
             margin-bottom: 25px;
             margin-top: 0px;
-            ;
         }
 
         .logo-container {
             text-align: center;
-            margin-top:10%;
+            margin-top: 10%;
         }
 
         @media only screen and (max-width: 600px) {
             .center {
-                width: 80%;
+                position: absolute;
+                height: 100%;
+                left: 10%;
+                right: 10%
+            }
+            .center h1{
+                font-size: 85px;
             }
         }
     </style>
