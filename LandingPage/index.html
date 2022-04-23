@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUDO GAME</title>
+    <style>
+        body {
+            overflow: hidden;
+            user-select: none;
+            background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.8)), url(./bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            padding: 0px 0px;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-group a {
+            background-color: transparent;
+            border: 3px solid white;
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 25px;
+            padding: 10px 24px;
+            cursor: pointer;
+            width: 100%;
+            display: block;
+            text-decoration: none;
+            text-align:center;
+        }
+
+        .btn-group a:not(:last-child) {
+            margin-bottom: 25px;
+        }
+
+        .btn-group a:hover {
+            background-color: #f1c40f;
+            border-color: #f1c40f;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .container {
+            height: 100vh;
+            position: relative;
+        }
+
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .center h1 {
+            color: white;
+            font-size:100px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="particles-js" class="container">
+        <div class="center">
+            <h1>LUDO GAME PACKAGE</h1>
+            <div class="btn-group">
+                <a href='https://drive.google.com/uc?export=download&id=17lGikacZ_26mu18DOBWmDE4sQ_yGaZa0' target='_blank'>Download Demo Application</a>
+                <a>Download Package From CodeCanyon</a>
+                <a>Download Package From Unity Asset Store</a>
+            </div>
+        </div>
+    </div>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
