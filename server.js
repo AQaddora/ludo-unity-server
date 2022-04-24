@@ -38,13 +38,12 @@ io.on("connection", (socket) => {
     let id = data["playerId"];
     let invalidId = id === "null" || id === "";
     if (invalidId) {
-      console.log("new user");
+      console.log("new user: " + id);
       id = shotId.generate();
       socket.emit(eastablishConection.PLAYER_REGISTRATION, { id });
     } else {
-      console.log("old user");
+      console.log("old user: " + id);
     }
-    console.log(id);
   });
   socket.on("quit", (data) => {
     console.log(`user ${socket.id} quit`);
