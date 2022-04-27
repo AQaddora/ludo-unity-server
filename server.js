@@ -4,9 +4,9 @@ const path = require("path");
 const router = express.Router();
 const { type } = require("os");
 const app = require("express")();
-app.use(express.static(path.join(__dirname, '/LandingPage')));
+app.use(express.static(path.join(__dirname,'./LandingPage')));
 app.get('/', function (_, res) {
-  res.sendFile(path.join(__dirname, 'LandingPage/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 const http = require("http").createServer(app);
 const io = require("socket.io")(http);

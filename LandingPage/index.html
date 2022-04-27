@@ -4,149 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-    <title>LUDO GAME</title>
+    <title>Node Server</title>
     <style>
         body {
+            overflow: hidden;
             padding: 0px;
             margin: 0px;
-            height: fit-content;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(./bg.jpg);
+            height: 100vh;
+            background: linear-gradient(rgba(232, 65, 24,0.5), rgba(232, 65, 24,0.6)), url(./bg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: white;
-        }
-
-        .container {
-            display: flex;
+            display:flex;
             align-items: center;
             justify-content: center;
         }
-
-        .center {
-            width: 50%;
-        }
-
-        .center h1 {
-            color: white;
-            font-size: 85px;
+        h1{
             text-align: center;
-            margin-bottom: 25px;
-            margin-top: 0px;
-        }
-
-        .center h2 {
-            font-size: 35px;
-        }
-
-        .center h3 {
-            font-size: 30px;
-        }
-
-        .center h4 {
-            font-size: 25px;
-        }
-
-        .center ol {
-            font-size: 20px;
-        }
-
-        .center ul {
-            font-size: 20px;
-        }
-
-        .logo-container {
-            text-align: center;
-        }
-
-        .center a {
-            text-decoration: none;
-            color: white;
-        }
-
-        .btn-group a {
-            background-color: transparent;
-            border: 3px solid white;
-            color: white;
-            font-size: 25px;
-            padding: 10px 24px;
-            cursor: pointer;
-            display: block;
-            text-decoration: none;
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .btn-group a:hover {
-            background-color: #f1c40f;
-            border-color: #f1c40f;
-            color: black;
-            font-weight: bold;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .center {
-                width: 95%;
-            }
-
-            .center h1 {
-                font-size: 75px;
-            }
+            font-size: 150px;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="center">
-            <div
-                style="user-select:none; height: 100vh;display: flex;align-items:center;justify-content:center;flex-direction: column;">
-                <div class="logo-container">
-                    <image width=150 src="./logo.png"></image>
-                </div>
-                <h1>LUDO GAME PACKAGE</h1>
-                <div class="btn-group">
-                    <a href='./ludo.apk' download>Download Demo Application</a>
-                    <a href='https://codecanyon.net/item/unity-multiplayer-ludo-game/37383651' target='_blank'>Download Package From CodeCanyon</a>
-                    <!-- <a>Download Package From Unity Asset Store</a> -->
-                </div>
-            </div>
-            <h2>HOW TO SETUP THIS PROJECT?</h2>
-            <h3>Required Software:</h3>
-            <ul id="requirements">
-                <li><a href="https://nodejs.org/en/" target="_blank">download node.js</a></li>
-                <li><a href="https://unity3d.com/get-unity/download" target="_blank">download Unity 3D</a></li>
-            </ul>
-            <h3>Run Project:</h3>
-            <ol>
-                <li>Run the Server.js file inside ludoNodeServer using "node server.js" cmd.</br></li>
-                <li>Import the unity project in unity.</li>
-                <li>Open the Game scene.</li>
-                <li>hit run.</li>
-            </ol>
-            <h4><mark style="background-color:rgba(231, 76, 60,0.6); color:white;">NOTE: PASS AND PLAY OPTION IS NOT
-                    AVAILABLE YOU CAN EITHER PLAY IT ONLINE BY HOSTING THE NODE SERVER
-                    PROJECT
-                    ON A SERVER OF YOUR CHOICE LIKE HEROKU, AWS, AZUR, GOOGLE CLOUD. YOU CAN ALSO PLAY IT ON LAN.
-                    IF SOMETHING WENT WRONG CHECK THE PORT NO. IN UNITY SocketIO PREFAB INSIDE HIERARCHY AND IN
-                    server.js
-                    FILE IT SHOULD BE SAME.</mark></h4>
-            <h3>Node Modules:</h3>
-            <ul id="node-modules">
-                <li><a href="https://www.npmjs.com/package/express" target="_blank">express</a></li>
-                <li><a href="https://www.npmjs.com/package/socket.io" target="_blank">socket.io</a></li>
-                <li><a href="https://www.npmjs.com/package/shortid" target="_blank">shortid</a></li>
-            </ul>
-        </div>
-    </div>
-    <footer style="text-align: center; margin-top:100px;">
-        <p>
-            <a>version 1.0</a><br>
-            <a style="color:#f1c40f;" href="https://gamerboxstudios.org/" target="_blank">GamerBox Studios ©2022</a>
-        </p>
-    </footer>
+    <h1>SERVER STARTED</h1>
 </body>
 
 </html>
